@@ -173,7 +173,7 @@ def segment_chunk(
 
     from cellpose import models
 
-    model = models.Cellpose(gpu=True, model_type=model_type, net_avg=not fast_mode)
+    model = models.Cellpose(gpu=True, model_type=model_type)
 
     logger.info("Evaluating model")
     segments, _, _, _ = model.eval(
@@ -184,7 +184,6 @@ def segment_chunk(
         diameter=diameter_yx,
         do_3D=True,
         anisotropy=anisotropy,
-        net_avg=not fast_mode,
         augment=not fast_mode,
         tile=not fast_mode,
         resample = resamp,
